@@ -1,0 +1,76 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileMatcher", "FileMatcher\FileMatcher.csproj", "{4D6F5599-DB35-4AEA-A26A-F8F388D70E87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectoryUtilities", "DirectoryUtilities\DirectoryUtilities.csproj", "{C57D6A3C-99A6-4546-9AD8-BCA27C3AB0B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectoryUtilitiesTest", "DirectoryUtilitiesTest\DirectoryUtilitiesTest.csproj", "{C693E125-8598-4916-8A46-60D1F16A9510}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileMatcherController", "FileMatcherController\FileMatcherController.csproj", "{E4E939F1-9012-4555-8276-13531FCF7CE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegexHelper", "RegexHelper\RegexHelper.csproj", "{C57B1C75-7206-4F9E-9ECD-6BCFA583E728}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegexHelperTest", "RegexHelperTest\RegexHelperTest.csproj", "{67DB345C-C244-4E11-9624-644A0E144FCF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D6F5599-DB35-4AEA-A26A-F8F388D70E87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D6F5599-DB35-4AEA-A26A-F8F388D70E87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D6F5599-DB35-4AEA-A26A-F8F388D70E87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D6F5599-DB35-4AEA-A26A-F8F388D70E87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C57D6A3C-99A6-4546-9AD8-BCA27C3AB0B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C57D6A3C-99A6-4546-9AD8-BCA27C3AB0B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C57D6A3C-99A6-4546-9AD8-BCA27C3AB0B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C57D6A3C-99A6-4546-9AD8-BCA27C3AB0B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C693E125-8598-4916-8A46-60D1F16A9510}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C693E125-8598-4916-8A46-60D1F16A9510}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C693E125-8598-4916-8A46-60D1F16A9510}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C693E125-8598-4916-8A46-60D1F16A9510}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4E939F1-9012-4555-8276-13531FCF7CE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4E939F1-9012-4555-8276-13531FCF7CE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4E939F1-9012-4555-8276-13531FCF7CE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4E939F1-9012-4555-8276-13531FCF7CE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C57B1C75-7206-4F9E-9ECD-6BCFA583E728}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C57B1C75-7206-4F9E-9ECD-6BCFA583E728}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C57B1C75-7206-4F9E-9ECD-6BCFA583E728}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C57B1C75-7206-4F9E-9ECD-6BCFA583E728}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67DB345C-C244-4E11-9624-644A0E144FCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67DB345C-C244-4E11-9624-644A0E144FCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67DB345C-C244-4E11-9624-644A0E144FCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67DB345C-C244-4E11-9624-644A0E144FCF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 7
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://bogdanniculeasa.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = FileMatcher\\FileMatcher.csproj
+		SccProjectName1 = FileMatcher
+		SccLocalPath1 = FileMatcher
+		SccProjectUniqueName2 = DirectoryUtilities\\DirectoryUtilities.csproj
+		SccProjectName2 = DirectoryUtilities
+		SccLocalPath2 = DirectoryUtilities
+		SccProjectUniqueName3 = DirectoryUtilitiesTest\\DirectoryUtilitiesTest.csproj
+		SccProjectName3 = DirectoryUtilitiesTest
+		SccLocalPath3 = DirectoryUtilitiesTest
+		SccProjectUniqueName4 = FileMatcherController\\FileMatcherController.csproj
+		SccProjectName4 = FileMatcherController
+		SccLocalPath4 = FileMatcherController
+		SccProjectUniqueName5 = RegexHelper\\RegexHelper.csproj
+		SccProjectName5 = RegexHelper
+		SccLocalPath5 = RegexHelper
+		SccProjectUniqueName6 = RegexHelperTest\\RegexHelperTest.csproj
+		SccProjectName6 = RegexHelperTest
+		SccLocalPath6 = RegexHelperTest
+	EndGlobalSection
+EndGlobal

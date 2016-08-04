@@ -1,0 +1,9 @@
+C:\Users\bogda\documents\visual studio 2015\Projects\FileMatcher\RegexHelperTest\bin\Debug\RegexHelperTest.dll
+C:\Users\bogda\documents\visual studio 2015\Projects\FileMatcher\RegexHelperTest\bin\Debug\RegexHelperTest.pdb
+C:\Users\bogda\documents\visual studio 2015\Projects\FileMatcher\RegexHelperTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\bogda\documents\visual studio 2015\Projects\FileMatcher\RegexHelperTest\bin\Debug\RegexHelper.dll
+C:\Users\bogda\documents\visual studio 2015\Projects\FileMatcher\RegexHelperTest\bin\Debug\RegexHelper.pdb
+C:\Users\bogda\documents\visual studio 2015\Projects\FileMatcher\RegexHelperTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+C:\Users\bogda\documents\visual studio 2015\Projects\FileMatcher\RegexHelperTest\obj\Debug\RegexHelperTest.csprojResolveAssemblyReference.cache
+C:\Users\bogda\documents\visual studio 2015\Projects\FileMatcher\RegexHelperTest\obj\Debug\RegexHelperTest.dll
+C:\Users\bogda\documents\visual studio 2015\Projects\FileMatcher\RegexHelperTest\obj\Debug\RegexHelperTest.pdb

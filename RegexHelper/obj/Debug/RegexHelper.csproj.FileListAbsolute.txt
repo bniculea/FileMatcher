@@ -1,0 +1,5 @@
+C:\Users\bogda\documents\visual studio 2015\Projects\FileMatcher\RegexHelper\bin\Debug\RegexHelper.dll
+C:\Users\bogda\documents\visual studio 2015\Projects\FileMatcher\RegexHelper\bin\Debug\RegexHelper.pdb
+C:\Users\bogda\documents\visual studio 2015\Projects\FileMatcher\RegexHelper\obj\Debug\RegexHelper.csprojResolveAssemblyReference.cache
+C:\Users\bogda\documents\visual studio 2015\Projects\FileMatcher\RegexHelper\obj\Debug\RegexHelper.dll
+C:\Users\bogda\documents\visual studio 2015\Projects\FileMatcher\RegexHelper\obj\Debug\RegexHelper.pdb

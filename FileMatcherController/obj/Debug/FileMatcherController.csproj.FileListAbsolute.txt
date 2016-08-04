@@ -1,0 +1,7 @@
+C:\Users\bogda\Documents\Visual Studio 2015\Projects\FileMatcher\FileMatcherController\bin\Debug\FileMatcherController.dll
+C:\Users\bogda\Documents\Visual Studio 2015\Projects\FileMatcher\FileMatcherController\bin\Debug\FileMatcherController.pdb
+C:\Users\bogda\Documents\Visual Studio 2015\Projects\FileMatcher\FileMatcherController\bin\Debug\DirectoryUtilities.dll
+C:\Users\bogda\Documents\Visual Studio 2015\Projects\FileMatcher\FileMatcherController\bin\Debug\DirectoryUtilities.pdb
+C:\Users\bogda\Documents\Visual Studio 2015\Projects\FileMatcher\FileMatcherController\obj\Debug\FileMatcherController.csprojResolveAssemblyReference.cache
+C:\Users\bogda\Documents\Visual Studio 2015\Projects\FileMatcher\FileMatcherController\obj\Debug\FileMatcherController.dll
+C:\Users\bogda\Documents\Visual Studio 2015\Projects\FileMatcher\FileMatcherController\obj\Debug\FileMatcherController.pdb
