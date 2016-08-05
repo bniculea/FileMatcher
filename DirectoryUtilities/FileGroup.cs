@@ -19,5 +19,19 @@ namespace DirectoryUtilities
         {
             GroupFiles.Add(fileItem);
         }
+
+        public bool AreFileEqualsInGroup()
+        {
+            bool same = true;
+            for (int i = 0; i < GroupFiles.Count-1; i++)
+            {
+                if (!FileComparer.CompareFiles(GroupFiles[i], GroupFiles[i + 1]))
+                {
+                    same = false;
+                    break;
+                }
+            }
+            return same;
+        }
     }
 }

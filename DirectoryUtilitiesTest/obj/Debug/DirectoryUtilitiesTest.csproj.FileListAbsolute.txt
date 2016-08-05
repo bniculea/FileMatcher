@@ -5,3 +5,13 @@ C:\Users\bogda\Documents\Visual Studio 2015\Projects\FileMatcher\DirectoryUtilit
 C:\Users\bogda\Documents\Visual Studio 2015\Projects\FileMatcher\DirectoryUtilitiesTest\bin\Debug\DirectoryUtilities.pdb
 C:\Users\bogda\Documents\Visual Studio 2015\Projects\FileMatcher\DirectoryUtilitiesTest\obj\Debug\DirectoryUtilitiesTest.dll
 C:\Users\bogda\Documents\Visual Studio 2015\Projects\FileMatcher\DirectoryUtilitiesTest\obj\Debug\DirectoryUtilitiesTest.pdb
+C:\GitRepositories\FileMatcher\DirectoryUtilitiesTest\bin\Debug\TestFiles\Newtonsoft.Json.dll
+C:\GitRepositories\FileMatcher\DirectoryUtilitiesTest\bin\Debug\TestFiles\SameContent.dll
+C:\GitRepositories\FileMatcher\DirectoryUtilitiesTest\bin\Debug\TestFiles\SameContent2.dll
+C:\GitRepositories\FileMatcher\DirectoryUtilitiesTest\bin\Debug\DirectoryUtilitiesTest.dll
+C:\GitRepositories\FileMatcher\DirectoryUtilitiesTest\bin\Debug\DirectoryUtilitiesTest.pdb
+C:\GitRepositories\FileMatcher\DirectoryUtilitiesTest\bin\Debug\DirectoryUtilities.dll
+C:\GitRepositories\FileMatcher\DirectoryUtilitiesTest\bin\Debug\DirectoryUtilities.pdb
+C:\GitRepositories\FileMatcher\DirectoryUtilitiesTest\obj\Debug\DirectoryUtilitiesTest.csprojResolveAssemblyReference.cache
+C:\GitRepositories\FileMatcher\DirectoryUtilitiesTest\obj\Debug\DirectoryUtilitiesTest.dll
+C:\GitRepositories\FileMatcher\DirectoryUtilitiesTest\obj\Debug\DirectoryUtilitiesTest.pdb

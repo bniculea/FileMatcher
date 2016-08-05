@@ -5,3 +5,10 @@ C:\Users\bogda\Documents\Visual Studio 2015\Projects\FileMatcher\FileMatcherCont
 C:\Users\bogda\Documents\Visual Studio 2015\Projects\FileMatcher\FileMatcherController\obj\Debug\FileMatcherController.csprojResolveAssemblyReference.cache
 C:\Users\bogda\Documents\Visual Studio 2015\Projects\FileMatcher\FileMatcherController\obj\Debug\FileMatcherController.dll
 C:\Users\bogda\Documents\Visual Studio 2015\Projects\FileMatcher\FileMatcherController\obj\Debug\FileMatcherController.pdb
+C:\GitRepositories\FileMatcher\FileMatcherController\bin\Debug\FileMatcherController.dll
+C:\GitRepositories\FileMatcher\FileMatcherController\bin\Debug\FileMatcherController.pdb
+C:\GitRepositories\FileMatcher\FileMatcherController\bin\Debug\DirectoryUtilities.dll
+C:\GitRepositories\FileMatcher\FileMatcherController\bin\Debug\DirectoryUtilities.pdb
+C:\GitRepositories\FileMatcher\FileMatcherController\obj\Debug\FileMatcherController.csprojResolveAssemblyReference.cache
+C:\GitRepositories\FileMatcher\FileMatcherController\obj\Debug\FileMatcherController.dll
+C:\GitRepositories\FileMatcher\FileMatcherController\obj\Debug\FileMatcherController.pdb

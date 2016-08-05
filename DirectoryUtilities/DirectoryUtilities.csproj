@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExtensionFilterCondition.cs" />
+    <Compile Include="FileComparer.cs" />
     <Compile Include="FileGroup.cs" />
     <Compile Include="FileGrouper.cs" />
     <Compile Include="FileNameExtractor.cs" />

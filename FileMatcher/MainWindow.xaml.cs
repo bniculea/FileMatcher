@@ -13,9 +13,7 @@ using DirectoryUtilities;
 using FileMatcherController;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using RegexHelper;
-using FileDialog = Microsoft.Win32.FileDialog;
 using MessageBox = System.Windows.MessageBox;
-using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
 
 namespace FileMatcher
 {
@@ -34,10 +32,6 @@ namespace FileMatcher
         {
             InitializeComponent();
             BackgroundWorker = new BackgroundWorker();
-        }
-
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
-        {
         }
 
         private void BrowseButton_OnClick(object sender, RoutedEventArgs e)
@@ -91,6 +85,7 @@ namespace FileMatcher
             DataTable = new DataTable();
             DataTable.Columns.Add("Nr");
             DataTable.Columns.Add("Filename");
+            DataTable.Columns.Add("Equal");
             int rowIndex = 1;
             AddFileGroupsToDataTable(fileGroups, rowIndex);
             SetUpDataGridRendering();
@@ -110,6 +105,7 @@ namespace FileMatcher
                 DataRow dataRow = DataTable.NewRow();
                 dataRow["Nr"] = $"{rowIndex++}";
                 dataRow["Filename"] = fileGroup.Name;
+                dataRow["Equal"] = fileGroup.AreFileEqualsInGroup().ToString();
                 int locationCount = 1;
                 CreateAndPopulateDataRowFromFileGroup(fileGroup, locationCount, dataRow);
                 DataTable.Rows.Add(dataRow);

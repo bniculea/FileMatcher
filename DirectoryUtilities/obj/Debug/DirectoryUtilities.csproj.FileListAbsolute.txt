@@ -3,3 +3,8 @@ C:\Users\bogda\Documents\Visual Studio 2015\Projects\FileMatcher\DirectoryUtilit
 C:\Users\bogda\Documents\Visual Studio 2015\Projects\FileMatcher\DirectoryUtilities\obj\Debug\DirectoryUtilities.dll
 C:\Users\bogda\Documents\Visual Studio 2015\Projects\FileMatcher\DirectoryUtilities\obj\Debug\DirectoryUtilities.pdb
 C:\Users\bogda\Documents\Visual Studio 2015\Projects\FileMatcher\DirectoryUtilities\obj\Debug\DirectoryUtilities.csprojResolveAssemblyReference.cache
+C:\GitRepositories\FileMatcher\DirectoryUtilities\bin\Debug\DirectoryUtilities.dll
+C:\GitRepositories\FileMatcher\DirectoryUtilities\bin\Debug\DirectoryUtilities.pdb
+C:\GitRepositories\FileMatcher\DirectoryUtilities\obj\Debug\DirectoryUtilities.csprojResolveAssemblyReference.cache
+C:\GitRepositories\FileMatcher\DirectoryUtilities\obj\Debug\DirectoryUtilities.dll
+C:\GitRepositories\FileMatcher\DirectoryUtilities\obj\Debug\DirectoryUtilities.pdb
