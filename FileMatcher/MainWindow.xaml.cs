@@ -7,6 +7,7 @@ using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
 using DirectoryUtilities;
@@ -32,10 +33,63 @@ namespace FileMatcher
         private ObservableCollection<FileGroup> FileGroups { get; set; }
         private DataTable DataTable { get; set; }
         public DataView DataView { get; set; }
+        private ICollectionView _dataGridCollection;
+        private string _filterString;
         public MainWindow()
         {
             InitializeComponent();
+
             BackgroundWorker = new BackgroundWorker();
+          
+        }
+
+        private bool Filter(object item)
+        {
+            FileGroup fileGroup = item as FileGroup;
+            if (fileGroup != null)
+            {
+                if (!string.IsNullOrEmpty(_filterString))
+                {
+                    return fileGroup.Name.Contains(_filterString);
+                }
+                return true;
+            }
+            return false;
+        }
+
+        public ICollectionView DataGridCollection
+        {
+            get { return _dataGridCollection; }
+            set
+            {
+                _dataGridCollection = value;
+                NotifyPropertyChanged("DataGridCollection");
+            }
+        }
+
+        public string FilterString
+        {
+            get { return _filterString; }
+            set
+            {
+                _filterString = value;
+                NotifyPropertyChanged("FilterString");
+                FilterCollection();
+            }
+        }
+
+        private void FilterCollection()
+        {
+            if (_dataGridCollection != null)
+            {
+                _dataGridCollection.Refresh();
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void NotifyPropertyChanged(string property)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
 
         private void BrowseButton_OnClick(object sender, RoutedEventArgs e)
@@ -69,19 +123,30 @@ namespace FileMatcher
 
         private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            if (AreInputsValid())
+            if (IsLocationSet())
             {
-                Dispatcher.Invoke(() => ProgressBarStatus.IsIndeterminate = true);
-                Controller controller = new Controller(DirectoryPath, Extension);
-                FileGroups = controller.GetGroupedFiles();
-                Dispatcher.Invoke(() => PopulateViewFromGroups(FileGroups));
-                Dispatcher.Invoke(()=>MessageBox.Show(this, "Matching finished!", "FileMatcher", MessageBoxButton.OK, MessageBoxImage.Information));
-
+                if (IsExtensionInputValid())
+                {
+                    Dispatcher.Invoke(() => ProgressBarStatus.IsIndeterminate = true);
+                    Controller controller = new Controller(DirectoryPath, Extension);
+                    FileGroups = controller.GetGroupedFiles();
+                    Dispatcher.Invoke(() => PopulateViewFromGroups(FileGroups));
+                    Dispatcher.Invoke(() => MessageBox.Show(this, "Matching finished!", "FileMatcher", MessageBoxButton.OK, MessageBoxImage.Information));
+                }
+                else
+                {
+                    Dispatcher.Invoke(() => MessageBox.Show(this, "Invalid extension type!", "FileMatcher", MessageBoxButton.OK, MessageBoxImage.Error));
+                }
             }
             else
             {
-                Dispatcher.Invoke(()=>MessageBox.Show(this, "Invalid extension type!", "FileMatcher", MessageBoxButton.OK, MessageBoxImage.Error));
+                Dispatcher.Invoke(() => MessageBox.Show(this, "Please select a location where to search.", "FileMatcher", MessageBoxButton.OK, MessageBoxImage.Warning));
             }
+        }
+
+        private bool IsLocationSet()
+        {
+            return !string.IsNullOrEmpty(DirectoryPath);
         }
 
         private void PopulateViewFromGroups(ObservableCollection<FileGroup> fileGroups)
@@ -97,9 +162,12 @@ namespace FileMatcher
 
         private void SetUpDataGridRendering()
         {
+            //DataView = DataTable.DefaultView;
+
             DataContext = null;
-            DataView = DataTable.DefaultView;
+            DataGridCollection = CollectionViewSource.GetDefaultView(DataTable);
             DataContext = this;
+           // DataGridCollection.Filter = Filter;
         }
 
         private void AddFileGroupsToDataTable(ObservableCollection<FileGroup> fileGroups, int rowIndex)
@@ -130,12 +198,11 @@ namespace FileMatcher
             }
         }
 
-        private bool AreInputsValid()
+        private bool IsExtensionInputValid()
         {
             RegexFileHelper regexFileHelper = new RegexFileHelper();
             return !string.IsNullOrEmpty(Extension) && regexFileHelper.IsExtension(Extension);
         }
-
 
         private void FileMatchedGridView_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -161,6 +228,11 @@ namespace FileMatcher
                     Process.Start(filePath);
                 }
             }
+        }
+
+        private void ButtonCancel_OnClick(object sender, RoutedEventArgs e)
+        {
+           
         }
     }
 }

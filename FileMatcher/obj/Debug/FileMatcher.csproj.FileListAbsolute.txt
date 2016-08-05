@@ -46,3 +46,7 @@ C:\GitRepositories\FileMatcher\FileMatcher\obj\Debug\MainWindow.baml
 C:\GitRepositories\FileMatcher\FileMatcher\obj\Debug\FileMatcher.g.resources
 C:\GitRepositories\FileMatcher\FileMatcher\obj\Debug\FileMatcher.Properties.Resources.resources
 C:\GitRepositories\FileMatcher\FileMatcher\obj\Debug\FileMatcher.csproj.GenerateResource.Cache
+C:\GitRepositories\FileMatcher\FileMatcher\obj\Debug\SearchTextBox.g.cs
+C:\GitRepositories\FileMatcher\FileMatcher\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\GitRepositories\FileMatcher\FileMatcher\obj\Debug\SearchTextBox.baml
+C:\GitRepositories\FileMatcher\FileMatcher\obj\Debug\App.baml
