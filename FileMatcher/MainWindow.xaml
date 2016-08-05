@@ -66,8 +66,10 @@
                       AlternatingRowBackground="DarkGray"
                       AlternationCount="2" 
                       IsReadOnly="True"
-                      MouseDoubleClick="FileMatchedGridView_OnMouseDoubleClick"
-                      />
+                      MouseDoubleClick="FileMatchedGridView_OnMouseDoubleClick" LoadingRow="FileMatchedGridView_LoadingRow"
+                      >
+
+            </DataGrid>
         </Grid>
         <StackPanel x:Name="ControlPanel" Grid.Row="2"
                     Orientation="Horizontal"

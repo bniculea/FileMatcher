@@ -22,6 +22,10 @@ namespace FileMatcher
     /// </summary>
     public partial class MainWindow : Window
     {
+        private const string IdColumn = "Nr";
+        private const string FileNameColumn = "Filename";
+        private const string SameContentColumn = "Same content";
+        private const string LocationColumn = "Location";
         private BackgroundWorker BackgroundWorker { get; set; }
         private string Extension { get; set; }
         private string DirectoryPath { get; set; }
@@ -83,9 +87,9 @@ namespace FileMatcher
         private void PopulateViewFromGroups(ObservableCollection<FileGroup> fileGroups)
         {
             DataTable = new DataTable();
-            DataTable.Columns.Add("Nr");
-            DataTable.Columns.Add("Filename");
-            DataTable.Columns.Add("Equal");
+            DataTable.Columns.Add(IdColumn);
+            DataTable.Columns.Add(FileNameColumn);
+            DataTable.Columns.Add(SameContentColumn);
             int rowIndex = 1;
             AddFileGroupsToDataTable(fileGroups, rowIndex);
             SetUpDataGridRendering();
@@ -103,9 +107,9 @@ namespace FileMatcher
             foreach (FileGroup fileGroup in fileGroups)
             {
                 DataRow dataRow = DataTable.NewRow();
-                dataRow["Nr"] = $"{rowIndex++}";
-                dataRow["Filename"] = fileGroup.Name;
-                dataRow["Equal"] = fileGroup.AreFileEqualsInGroup().ToString();
+                dataRow[IdColumn] = $"{rowIndex++}";
+                dataRow[FileNameColumn] = fileGroup.Name;
+                dataRow[SameContentColumn] = fileGroup.AreFileEqualsInGroup().ToString();
                 int locationCount = 1;
                 CreateAndPopulateDataRowFromFileGroup(fileGroup, locationCount, dataRow);
                 DataTable.Rows.Add(dataRow);
@@ -116,12 +120,11 @@ namespace FileMatcher
         {
             foreach (string file in fileGroup.GroupFiles)
             {
-                if (!DataTable.Columns.Contains($"Location {locationCount}"))
+                if (!DataTable.Columns.Contains($"{LocationColumn} #{locationCount}"))
                 {
-                    DataTable.Columns.Add($"Location {locationCount}");
+                    DataTable.Columns.Add($"{LocationColumn} #{locationCount}");
                 }
-                dataRow[$"Location {locationCount}"] = file;
-
+                dataRow[$"{LocationColumn} #{locationCount}"] = file;
 
                 locationCount++;
             }
@@ -152,6 +155,15 @@ namespace FileMatcher
                     string filePath = Path.GetDirectoryName(txt.Text);
                     Process.Start(filePath);
                 }
+            }
+        }
+
+        private void FileMatchedGridView_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            bool value = Convert.ToBoolean(((DataRowView) (e.Row.DataContext)).Row.ItemArray[2]);
+            if (!value)
+            {
+                e.Row.Background = new SolidColorBrush(Colors.Red);
             }
         }
     }
