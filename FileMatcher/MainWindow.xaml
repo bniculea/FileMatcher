@@ -63,12 +63,20 @@
             <DataGrid x:Name="FileMatchedGridView"
                       ItemsSource="{Binding Path=DataView}"
                       CanUserSortColumns="True" 
-                      AlternatingRowBackground="DarkGray"
-                      AlternationCount="2" 
+                       
                       IsReadOnly="True"
-                      MouseDoubleClick="FileMatchedGridView_OnMouseDoubleClick" LoadingRow="FileMatchedGridView_LoadingRow"
-                      >
-
+                      MouseDoubleClick="FileMatchedGridView_OnMouseDoubleClick"
+                    >
+                <DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow">
+                        <Style.Triggers>
+                            <DataTrigger  Binding="{Binding Equals}" Value="False">
+                                <Setter Property="Background" Value="Red" />
+                            
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.RowStyle>
             </DataGrid>
         </Grid>
         <StackPanel x:Name="ControlPanel" Grid.Row="2"

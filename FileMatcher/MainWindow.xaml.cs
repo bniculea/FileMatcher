@@ -24,7 +24,7 @@ namespace FileMatcher
     {
         private const string IdColumn = "Nr";
         private const string FileNameColumn = "Filename";
-        private const string SameContentColumn = "Same content";
+        public const string SameContentColumn = "Equals";
         private const string LocationColumn = "Location";
         private BackgroundWorker BackgroundWorker { get; set; }
         private string Extension { get; set; }
@@ -146,6 +146,11 @@ namespace FileMatcher
                 dependencyObject = VisualTreeHelper.GetParent(dependencyObject);
             }
             if (dependencyObject == null) return;
+            OpenExplorerAtSelectedLocation(dependencyObject);
+        }
+
+        private void OpenExplorerAtSelectedLocation(DependencyObject dependencyObject)
+        {
             if (dependencyObject is DataGridCell)
             {
                 DataGridCell selectedDataGridCell = dependencyObject as DataGridCell;
@@ -155,15 +160,6 @@ namespace FileMatcher
                     string filePath = Path.GetDirectoryName(txt.Text);
                     Process.Start(filePath);
                 }
-            }
-        }
-
-        private void FileMatchedGridView_LoadingRow(object sender, DataGridRowEventArgs e)
-        {
-            bool value = Convert.ToBoolean(((DataRowView) (e.Row.DataContext)).Row.ItemArray[2]);
-            if (!value)
-            {
-                e.Row.Background = new SolidColorBrush(Colors.Red);
             }
         }
     }

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileMatcher", "FileMatcher\FileMatcher.csproj", "{4D6F5599-DB35-4AEA-A26A-F8F388D70E87}"
 EndProject
@@ -14,6 +14,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegexHelper", "RegexHelper\RegexHelper.csproj", "{C57B1C75-7206-4F9E-9ECD-6BCFA583E728}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegexHelperTest", "RegexHelperTest\RegexHelperTest.csproj", "{67DB345C-C244-4E11-9624-644A0E144FCF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeSnippets", "CodeSnippets", "{9B46FE90-4205-44E5-8ABE-B44F86E048B3}"
+	ProjectSection(SolutionItems) = preProject
+		Add a colored column based on some value.txt = Add a colored column based on some value.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,29 +53,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 7
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://bogdanniculeasa.visualstudio.com/
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = FileMatcher\\FileMatcher.csproj
-		SccProjectName1 = FileMatcher
-		SccLocalPath1 = FileMatcher
-		SccProjectUniqueName2 = DirectoryUtilities\\DirectoryUtilities.csproj
-		SccProjectName2 = DirectoryUtilities
-		SccLocalPath2 = DirectoryUtilities
-		SccProjectUniqueName3 = DirectoryUtilitiesTest\\DirectoryUtilitiesTest.csproj
-		SccProjectName3 = DirectoryUtilitiesTest
-		SccLocalPath3 = DirectoryUtilitiesTest
-		SccProjectUniqueName4 = FileMatcherController\\FileMatcherController.csproj
-		SccProjectName4 = FileMatcherController
-		SccLocalPath4 = FileMatcherController
-		SccProjectUniqueName5 = RegexHelper\\RegexHelper.csproj
-		SccProjectName5 = RegexHelper
-		SccLocalPath5 = RegexHelper
-		SccProjectUniqueName6 = RegexHelperTest\\RegexHelperTest.csproj
-		SccProjectName6 = RegexHelperTest
-		SccLocalPath6 = RegexHelperTest
 	EndGlobalSection
 EndGlobal

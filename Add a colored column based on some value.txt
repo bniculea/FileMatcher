@@ -1,0 +1,34 @@
+In xaml:
+-------------------------------------------------------------------------------------------
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding SameContentColumn}">
+                        <DataGridTextColumn.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Equals}" Value="False">
+                                        <Setter Property="Background" Value="Red"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGridTextColumn.CellStyle>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+--------------------------------------------------------------------------------------------
+In Code:
+        //private void FileMatchedGridView_LoadingRow(object sender, DataGridRowEventArgs e)
+        //{
+        //    try
+        //    {
+        //        bool value = Convert.ToBoolean(((DataRowView)(e.Row.DataContext)).Row.ItemArray[2]);
+        //        if (!value)
+        //        {
+        //            e.Row.Background = new SolidColorBrush(Colors.Red);
+        //        }
+        //    }
+        //    catch
+        //    {
+
+        //    }
+        //}
+
+		**this suffers from the refresh problem -> it may color cells which were not supposed to be colored
