@@ -5,6 +5,5 @@ C:\Users\bogda\documents\visual studio 2015\Projects\FileMatcher\RegexHelper\obj
 C:\Users\bogda\documents\visual studio 2015\Projects\FileMatcher\RegexHelper\obj\Debug\RegexHelper.pdb
 C:\GitRepositories\FileMatcher\RegexHelper\bin\Debug\RegexHelper.dll
 C:\GitRepositories\FileMatcher\RegexHelper\bin\Debug\RegexHelper.pdb
-C:\GitRepositories\FileMatcher\RegexHelper\obj\Debug\RegexHelper.csprojResolveAssemblyReference.cache
 C:\GitRepositories\FileMatcher\RegexHelper\obj\Debug\RegexHelper.dll
 C:\GitRepositories\FileMatcher\RegexHelper\obj\Debug\RegexHelper.pdb

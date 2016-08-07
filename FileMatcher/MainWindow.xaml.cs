@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.IO;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -27,7 +28,6 @@ namespace FileMatcher
         private const string FileNameColumn = "Filename";
         public const string SameContentColumn = "Equals";
         private const string LocationColumn = "Location";
-        private BackgroundWorker BackgroundWorker { get; set; }
         private string Extension { get; set; }
         private string DirectoryPath { get; set; }
         private ObservableCollection<FileGroup> FileGroups { get; set; }
@@ -38,9 +38,6 @@ namespace FileMatcher
         public MainWindow()
         {
             InitializeComponent();
-
-            BackgroundWorker = new BackgroundWorker();
-          
         }
 
       public ICollectionView DataGridCollection
@@ -70,89 +67,96 @@ namespace FileMatcher
             }
         }
 
-        private void ButtonRun_OnClick(object sender, RoutedEventArgs e)
-        {
-            Extension = TxtExtension.Text;
-            DirectoryPath = TxtSelectedPath.Text;
-            BackgroundWorker.WorkerReportsProgress = true;
-            BackgroundWorker.DoWork += BackgroundWorker_DoWork;
-            BackgroundWorker.RunWorkerAsync();
-            BackgroundWorker.RunWorkerCompleted += BackgroundWorker_RunWorkerCompleted;
-           
-        }
-
-        private void BackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            Dispatcher.Invoke(()=> ProgressBarStatus.IsIndeterminate = false);
-            BackgroundWorker.DoWork -= BackgroundWorker_DoWork;
-            BackgroundWorker.RunWorkerCompleted -= BackgroundWorker_RunWorkerCompleted;
-        }
-
-        private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+        private async void ButtonRun_OnClick(object sender, RoutedEventArgs e)
         {
             if (IsLocationSet())
             {
                 if (IsExtensionInputValid())
                 {
-                    Dispatcher.Invoke(() => ProgressBarStatus.IsIndeterminate = true);
-                    Controller controller = new Controller(DirectoryPath, Extension);
-                    FileGroups = controller.GetGroupedFiles();
-                    Dispatcher.Invoke(() => PopulateViewFromGroups(FileGroups));
-                    Dispatcher.Invoke(() => MessageBox.Show(this, "Matching finished!", "FileMatcher", MessageBoxButton.OK, MessageBoxImage.Information));
+                   
+                    Extension = TxtExtension.Text;
+                    DirectoryPath = TxtSelectedPath.Text;
+                    EnableControls(false);
+                    Task<ObservableCollection<FileGroup>> fileMatchingTask = Task.Run(() => RunMatching());
+                    await Task.Run(()=>PopulateViewFromGroups(fileMatchingTask.Result));
+                    EnableControls(true);
+                    MessageBox.Show(this, "Matching finished!", "FileMatcher", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 else
                 {
-                    Dispatcher.Invoke(() => MessageBox.Show(this, "Invalid extension type!", "FileMatcher", MessageBoxButton.OK, MessageBoxImage.Error));
+                   MessageBox.Show(this, "Invalid extension type!", "FileMatcher", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             else
             {
-                Dispatcher.Invoke(() => MessageBox.Show(this, "Please select a location where to search.", "FileMatcher", MessageBoxButton.OK, MessageBoxImage.Warning));
+                MessageBox.Show(this, "Please select a location where to search.", "FileMatcher", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
+
         }
+
+        private void EnableControls(bool isEnabled)
+        {
+            ProgressBarStatus.IsIndeterminate = !isEnabled;
+            InputPanel.IsEnabled = isEnabled;
+            ControlPanel.IsEnabled = isEnabled;
+        }
+
+        private ObservableCollection<FileGroup> RunMatching()
+        {
+            Controller controller = new Controller(DirectoryPath, Extension);
+            FileGroups = controller.GetGroupedFiles();
+            return FileGroups;
+        }
+
 
         private bool IsLocationSet()
         {
-            return !string.IsNullOrEmpty(DirectoryPath);
+            return !string.IsNullOrEmpty(TxtSelectedPath.Text);
         }
 
         private void PopulateViewFromGroups(ObservableCollection<FileGroup> fileGroups)
+        {
+            PrepareDataTable();
+            AddFileGroupsToDataTable(fileGroups);
+            SetUpDataGridRendering();
+        }
+
+        private void PrepareDataTable()
         {
             DataTable = new DataTable();
             DataTable.Columns.Add(IdColumn);
             DataTable.Columns.Add(FileNameColumn);
             DataTable.Columns.Add(SameContentColumn);
-            int rowIndex = 1;
-            AddFileGroupsToDataTable(fileGroups, rowIndex);
-            SetUpDataGridRendering();
         }
 
         private void SetUpDataGridRendering()
         {
-            //DataView = DataTable.DefaultView;
-
-            DataContext = null;
-            DataGridCollection = CollectionViewSource.GetDefaultView(DataTable);
-            DataContext = this;
-           // DataGridCollection.Filter = Filter;
+            Dispatcher.Invoke(() =>
+            {
+                DataContext = null;
+                DataGridCollection = CollectionViewSource.GetDefaultView(DataTable);
+                DataContext = this;
+            });
         }
 
-        private void AddFileGroupsToDataTable(ObservableCollection<FileGroup> fileGroups, int rowIndex)
+        private void AddFileGroupsToDataTable(ObservableCollection<FileGroup> fileGroups)
         {
+            int rowIndex = 1;
             foreach (FileGroup fileGroup in fileGroups)
             {
                 DataRow dataRow = DataTable.NewRow();
                 dataRow[IdColumn] = $"{rowIndex++}";
                 dataRow[FileNameColumn] = fileGroup.Name;
                 dataRow[SameContentColumn] = fileGroup.AreFileEqualsInGroup().ToString();
-                int locationCount = 1;
-                CreateAndPopulateDataRowFromFileGroup(fileGroup, locationCount, dataRow);
+              
+                CreateAndPopulateDataRowFromFileGroup(fileGroup, dataRow);
                 DataTable.Rows.Add(dataRow);
             }
         }
 
-        private void CreateAndPopulateDataRowFromFileGroup(FileGroup fileGroup, int locationCount, DataRow dataRow)
+        private void CreateAndPopulateDataRowFromFileGroup(FileGroup fileGroup, DataRow dataRow)
         {
+            int locationCount = 1;
             foreach (string file in fileGroup.GroupFiles)
             {
                 if (!DataTable.Columns.Contains($"{LocationColumn} #{locationCount}"))
@@ -168,7 +172,7 @@ namespace FileMatcher
         private bool IsExtensionInputValid()
         {
             RegexFileHelper regexFileHelper = new RegexFileHelper();
-            return !string.IsNullOrEmpty(Extension) && regexFileHelper.IsExtension(Extension);
+            return !string.IsNullOrEmpty(TxtExtension.Text) && regexFileHelper.IsExtension(TxtExtension.Text);
         }
 
         private void FileMatchedGridView_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)

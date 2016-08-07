@@ -23,8 +23,6 @@ C:\Users\bogda\Documents\Visual Studio 2015\Projects\FileMatcher\FileMatcher\bin
 C:\Users\bogda\documents\visual studio 2015\Projects\FileMatcher\FileMatcher\bin\Debug\RegexHelper.dll
 C:\Users\bogda\documents\visual studio 2015\Projects\FileMatcher\FileMatcher\bin\Debug\RegexHelper.pdb
 C:\GitRepositories\FileMatcher\FileMatcher\bin\Debug\FileMatcher.exe.config
-C:\GitRepositories\FileMatcher\FileMatcher\obj\Debug\FileMatcher.exe
-C:\GitRepositories\FileMatcher\FileMatcher\obj\Debug\FileMatcher.pdb
 C:\GitRepositories\FileMatcher\FileMatcher\bin\Debug\FileMatcher.exe
 C:\GitRepositories\FileMatcher\FileMatcher\bin\Debug\FileMatcher.pdb
 C:\GitRepositories\FileMatcher\FileMatcher\bin\Debug\DirectoryUtilities.dll
@@ -39,14 +37,15 @@ C:\GitRepositories\FileMatcher\FileMatcher\bin\Debug\Microsoft.WindowsAPICodePac
 C:\GitRepositories\FileMatcher\FileMatcher\bin\Debug\Microsoft.WindowsAPICodePack.Shell.xml
 C:\GitRepositories\FileMatcher\FileMatcher\obj\Debug\FileMatcher.csprojResolveAssemblyReference.cache
 C:\GitRepositories\FileMatcher\FileMatcher\obj\Debug\MainWindow.g.cs
+C:\GitRepositories\FileMatcher\FileMatcher\obj\Debug\SearchTextBox.g.cs
 C:\GitRepositories\FileMatcher\FileMatcher\obj\Debug\App.g.cs
 C:\GitRepositories\FileMatcher\FileMatcher\obj\Debug\FileMatcher_MarkupCompile.cache
 C:\GitRepositories\FileMatcher\FileMatcher\obj\Debug\FileMatcher_MarkupCompile.lref
+C:\GitRepositories\FileMatcher\FileMatcher\obj\Debug\App.baml
 C:\GitRepositories\FileMatcher\FileMatcher\obj\Debug\MainWindow.baml
+C:\GitRepositories\FileMatcher\FileMatcher\obj\Debug\SearchTextBox.baml
 C:\GitRepositories\FileMatcher\FileMatcher\obj\Debug\FileMatcher.g.resources
 C:\GitRepositories\FileMatcher\FileMatcher\obj\Debug\FileMatcher.Properties.Resources.resources
 C:\GitRepositories\FileMatcher\FileMatcher\obj\Debug\FileMatcher.csproj.GenerateResource.Cache
-C:\GitRepositories\FileMatcher\FileMatcher\obj\Debug\SearchTextBox.g.cs
-C:\GitRepositories\FileMatcher\FileMatcher\obj\Debug\GeneratedInternalTypeHelper.g.cs
-C:\GitRepositories\FileMatcher\FileMatcher\obj\Debug\SearchTextBox.baml
-C:\GitRepositories\FileMatcher\FileMatcher\obj\Debug\App.baml
+C:\GitRepositories\FileMatcher\FileMatcher\obj\Debug\FileMatcher.exe
+C:\GitRepositories\FileMatcher\FileMatcher\obj\Debug\FileMatcher.pdb

@@ -6,9 +6,7 @@
         xmlns:local="clr-namespace:FileMatcher"
         mc:Ignorable="d"
         Title="File Matcher" Height="500" Width="525">
-    <Window.Resources>
-        <local:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
-    </Window.Resources>
+  
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.75*"/>
