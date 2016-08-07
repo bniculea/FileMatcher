@@ -34,7 +34,7 @@ namespace FileMatcher
         private DataTable DataTable { get; set; }
         public DataView DataView { get; set; }
         private ICollectionView _dataGridCollection;
-        private string _filterString;
+       
         public MainWindow()
         {
             InitializeComponent();
@@ -43,46 +43,13 @@ namespace FileMatcher
           
         }
 
-        private bool Filter(object item)
-        {
-            FileGroup fileGroup = item as FileGroup;
-            if (fileGroup != null)
-            {
-                if (!string.IsNullOrEmpty(_filterString))
-                {
-                    return fileGroup.Name.Contains(_filterString);
-                }
-                return true;
-            }
-            return false;
-        }
-
-        public ICollectionView DataGridCollection
+      public ICollectionView DataGridCollection
         {
             get { return _dataGridCollection; }
             set
             {
                 _dataGridCollection = value;
                 NotifyPropertyChanged("DataGridCollection");
-            }
-        }
-
-        public string FilterString
-        {
-            get { return _filterString; }
-            set
-            {
-                _filterString = value;
-                NotifyPropertyChanged("FilterString");
-                FilterCollection();
-            }
-        }
-
-        private void FilterCollection()
-        {
-            if (_dataGridCollection != null)
-            {
-                _dataGridCollection.Refresh();
             }
         }
 

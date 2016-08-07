@@ -54,25 +54,6 @@
                          HorizontalAlignment="left"
                          VerticalAlignment="Center"
                          Margin="0,5,5,5"/>
-               <DockPanel
-                          Height="22"
-                          Width="200"
-                          >
-                    <Image Source="Images/Find.ico"
-                           DockPanel.Dock="Right"
-                           HorizontalAlignment="Right"
-                           Height="28"
-                           Width="23"/>
-                  
-                    <TextBox x:Name="TxtSearch"
-                             Text="{Binding FilterString, UpdateSourceTrigger=PropertyChanged}"
-                             FontSize="12"
-                             Style="{StaticResource PlaceHolder}"
-                             Tag="Search..."
-                             HorizontalAlignment="Stretch"
-                             Height="22"
-                             />
-               </DockPanel>
             </DockPanel>
             
         </StackPanel>
