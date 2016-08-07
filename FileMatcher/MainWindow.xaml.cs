@@ -73,25 +73,41 @@ namespace FileMatcher
             {
                 if (IsExtensionInputValid())
                 {
-                   
                     Extension = TxtExtension.Text;
                     DirectoryPath = TxtSelectedPath.Text;
                     EnableControls(false);
                     Task<ObservableCollection<FileGroup>> fileMatchingTask = Task.Run(() => RunMatching());
-                    await Task.Run(()=>PopulateViewFromGroups(fileMatchingTask.Result));
-                    EnableControls(true);
-                    MessageBox.Show(this, "Matching finished!", "FileMatcher", MessageBoxButton.OK, MessageBoxImage.Information);
+                    if (fileMatchingTask.Result.Count == 0)
+                    {
+                        HandleWhenNoResultsAreReturned();
+                    }
+                    else
+                    {
+                        await Task.Run(() => PopulateViewFromGroups(fileMatchingTask.Result));
+                        EnableControls(true);
+                        MessageBox.Show(this, "Matching finished!", "File Matcher", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
                 }
                 else
                 {
-                   MessageBox.Show(this, "Invalid extension type!", "FileMatcher", MessageBoxButton.OK, MessageBoxImage.Error);
+                   MessageBox.Show(this, "Invalid extension type!", "File Matcher", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             else
             {
-                MessageBox.Show(this, "Please select a location where to search.", "FileMatcher", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show(this, "Please select a location where to search.", "File Matcher", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
 
+        }
+
+        private void HandleWhenNoResultsAreReturned()
+        {
+            EnableControls(true);
+            MessageBox.Show(this,
+                "No results returned using the current settings. Try to change the extension or the location",
+                "File matcher", MessageBoxButton.OK, MessageBoxImage.Information);
+            FileMatchedGridView.ItemsSource = null;
+            FileMatchedGridView.Items.Refresh();
         }
 
         private void EnableControls(bool isEnabled)
