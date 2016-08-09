@@ -34,7 +34,8 @@
             <TextBox  x:Name="TxtSelectedPath"
                       Width="350" Grid.Column="1"
                       VerticalAlignment="Center"
-                      HorizontalAlignment="Left"/>
+                      HorizontalAlignment="Left"
+                      IsReadOnly="True"/>
             <Button Content="Browse"
                     Name="BrowseButton"
                     Grid.Column="2" 
