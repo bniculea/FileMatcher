@@ -36,3 +36,5 @@ In Code:
 
 // Given dll path => Check alignment between RES, Manifest and DLL
 							Same version, public key, .NET version
+
+// Color equal files with same color in datagrid
