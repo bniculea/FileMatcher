@@ -48,6 +48,7 @@
     <Compile Include="FileComparer.cs" />
     <Compile Include="FileGroup.cs" />
     <Compile Include="FileGrouper.cs" />
+    <Compile Include="FileHasher.cs" />
     <Compile Include="FileNameExtractor.cs" />
     <Compile Include="FilesFinder.cs" />
     <Compile Include="IFileFilterCondition.cs" />

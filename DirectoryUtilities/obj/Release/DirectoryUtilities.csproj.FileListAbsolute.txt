@@ -1,0 +1,5 @@
+C:\GitRepositories\FileMatcher\DirectoryUtilities\bin\Release\DirectoryUtilities.dll
+C:\GitRepositories\FileMatcher\DirectoryUtilities\bin\Release\DirectoryUtilities.pdb
+C:\GitRepositories\FileMatcher\DirectoryUtilities\obj\Release\DirectoryUtilities.csprojResolveAssemblyReference.cache
+C:\GitRepositories\FileMatcher\DirectoryUtilities\obj\Release\DirectoryUtilities.dll
+C:\GitRepositories\FileMatcher\DirectoryUtilities\obj\Release\DirectoryUtilities.pdb

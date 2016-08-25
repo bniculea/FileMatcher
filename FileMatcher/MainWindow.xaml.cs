@@ -173,7 +173,7 @@ namespace FileMatcher
         private void CreateAndPopulateDataRowFromFileGroup(FileGroup fileGroup, DataRow dataRow)
         {
             int locationCount = 1;
-            foreach (string file in fileGroup.GroupFiles)
+            foreach (string file in fileGroup.GroupFilePaths)
             {
                 if (!DataTable.Columns.Contains($"{LocationColumn} #{locationCount}"))
                 {
