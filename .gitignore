@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/FileMatcher/bin/Release
+/FileMatcher/obj/Release
+/FileMatcherController/bin/Release
+/FileMatcherController/obj/Release
+/RegexHelper
+/RegexHelperTest
