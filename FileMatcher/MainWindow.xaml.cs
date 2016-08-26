@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -34,7 +36,7 @@ namespace FileMatcher
         private DataTable DataTable { get; set; }
         public DataView DataView { get; set; }
         private ICollectionView _dataGridCollection;
-       
+        private Controller Controller { get; set; }
         public MainWindow()
         {
             InitializeComponent();
@@ -119,8 +121,8 @@ namespace FileMatcher
 
         private ObservableCollection<FileGroup> RunMatching()
         {
-            Controller controller = new Controller(DirectoryPath, Extension);
-            FileGroups = controller.GetGroupedFiles();
+            Controller = new Controller(DirectoryPath, Extension);
+            FileGroups = Controller.GetGroupedFiles();
             return FileGroups;
         }
 
@@ -180,7 +182,6 @@ namespace FileMatcher
                     DataTable.Columns.Add($"{LocationColumn} #{locationCount}");
                 }
                 dataRow[$"{LocationColumn} #{locationCount}"] = file;
-
                 locationCount++;
             }
         }
@@ -220,6 +221,33 @@ namespace FileMatcher
         private void ButtonCancel_OnClick(object sender, RoutedEventArgs e)
         {
            
+        }
+
+        private void FileMatchedGridView_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            bool areEqual = Convert.ToBoolean(((DataRowView)(e.Row.DataContext)).Row.ItemArray[2]);
+            Dictionary<string, List<string>> filesGroupedByContent = new Dictionary<string, List<string>>();
+            // for each filePathInRow group files in anDictionart
+            if (!areEqual)
+            {
+                FileHasher fileHasher = new FileHasher();
+                object[] fileLocations = ((DataRowView) (e.Row.DataContext)).Row.ItemArray;
+                for (int i = 3; i < fileLocations.Length; i++)
+                {
+                    if (!string.IsNullOrEmpty(fileLocations[i].ToString()))
+                    {
+                        string hash = fileHasher.GetHash(fileLocations[i].ToString());
+                        if (!filesGroupedByContent.ContainsKey(hash))
+                        {
+                            filesGroupedByContent.Add(hash, new List<string> {fileLocations[i].ToString()});
+                        }
+                        else
+                        {
+                            filesGroupedByContent[hash].Add(fileLocations[i].ToString());
+                        }
+                    }
+                }
+            }
         }
     }
 }
