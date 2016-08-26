@@ -63,6 +63,7 @@
                       IsReadOnly="True"
                       MouseDoubleClick="FileMatchedGridView_OnMouseDoubleClick"
                       LoadingRow="FileMatchedGridView_LoadingRow"
+                      
                     >
                 <!--<DataGrid.RowStyle>
                     <Style TargetType="DataGridRow">
