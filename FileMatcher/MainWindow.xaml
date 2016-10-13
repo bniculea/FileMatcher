@@ -34,7 +34,8 @@
             <TextBox  x:Name="TxtSelectedPath"
                       Width="350" Grid.Column="1"
                       VerticalAlignment="Center"
-                      HorizontalAlignment="Left"/>
+                      HorizontalAlignment="Left"
+                      IsReadOnly="True"/>
             <Button Content="Browse"
                     Name="BrowseButton"
                     Grid.Column="2" 
@@ -61,17 +62,18 @@
                       CanUserSortColumns="True" 
                       IsReadOnly="True"
                       MouseDoubleClick="FileMatchedGridView_OnMouseDoubleClick"
+                      LoadingRow="FileMatchedGridView_LoadingRow"
+                      
                     >
-                <DataGrid.RowStyle>
+                <!--<DataGrid.RowStyle>
                     <Style TargetType="DataGridRow">
                         <Style.Triggers>
                             <DataTrigger  Binding="{Binding Equals}" Value="False">
                                 <Setter Property="Background" Value="Red" />
-                            
                             </DataTrigger>
                         </Style.Triggers>
                     </Style>
-                </DataGrid.RowStyle>
+                </DataGrid.RowStyle>-->
             </DataGrid>
         </Grid>
         <StackPanel x:Name="ControlPanel" Grid.Row="2"

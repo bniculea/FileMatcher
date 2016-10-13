@@ -7,25 +7,25 @@ namespace DirectoryUtilities
     public class FileGroup
     {
         public string Name { get; private set; }
-        public List<string> GroupFiles{ get; set; }
+        public List<string> GroupFilePaths{ get; set; }
 
-        public FileGroup(string name, List<string> groupFiles)
+        public FileGroup(string name, List<string> groupFilePaths)
         {
             Name = name;
-            GroupFiles = groupFiles;
+            GroupFilePaths = groupFilePaths;
         }
 
         public void Add(string fileItem)
         {
-            GroupFiles.Add(fileItem);
+            GroupFilePaths.Add(fileItem);
         }
 
         public bool AreFileEqualsInGroup()
         {
             bool same = true;
-            for (int i = 0; i < GroupFiles.Count-1; i++)
+            for (int i = 0; i < GroupFilePaths.Count-1; i++)
             {
-                if (!FileComparer.CompareFiles(GroupFiles[i], GroupFiles[i + 1]))
+                if (!FileComparer.CompareFiles(GroupFilePaths[i], GroupFilePaths[i + 1]))
                 {
                     same = false;
                     break;

@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,6 +13,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Threading;
 using DirectoryUtilities;
 using FileMatcherController;
 using Microsoft.WindowsAPICodePack.Dialogs;
@@ -34,7 +37,7 @@ namespace FileMatcher
         private DataTable DataTable { get; set; }
         public DataView DataView { get; set; }
         private ICollectionView _dataGridCollection;
-       
+        private Controller Controller { get; set; }
         public MainWindow()
         {
             InitializeComponent();
@@ -119,8 +122,8 @@ namespace FileMatcher
 
         private ObservableCollection<FileGroup> RunMatching()
         {
-            Controller controller = new Controller(DirectoryPath, Extension);
-            FileGroups = controller.GetGroupedFiles();
+            Controller = new Controller(DirectoryPath, Extension);
+            FileGroups = Controller.GetGroupedFiles();
             return FileGroups;
         }
 
@@ -173,14 +176,13 @@ namespace FileMatcher
         private void CreateAndPopulateDataRowFromFileGroup(FileGroup fileGroup, DataRow dataRow)
         {
             int locationCount = 1;
-            foreach (string file in fileGroup.GroupFiles)
+            foreach (string file in fileGroup.GroupFilePaths)
             {
                 if (!DataTable.Columns.Contains($"{LocationColumn} #{locationCount}"))
                 {
                     DataTable.Columns.Add($"{LocationColumn} #{locationCount}");
                 }
                 dataRow[$"{LocationColumn} #{locationCount}"] = file;
-
                 locationCount++;
             }
         }
@@ -221,5 +223,107 @@ namespace FileMatcher
         {
            
         }
+
+        private void FileMatchedGridView_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            bool areEqual = Convert.ToBoolean(((DataRowView)(e.Row.DataContext)).Row.ItemArray[2]);
+            Dictionary<string, List<Tuple<string, int>>> filesGroupedByContent = new Dictionary<string, List<Tuple<string,int>>>();
+            // for each filePathInRow group files in anDictionart
+            if (!areEqual)
+            {
+                FileHasher fileHasher = new FileHasher();
+                object[] fileLocations = ((DataRowView) (e.Row.DataContext)).Row.ItemArray;
+                for (int i = 3; i < fileLocations.Length; i++)
+                {
+                    if (!string.IsNullOrEmpty(fileLocations[i].ToString()))
+                    {
+                        string hash = fileHasher.GetHash(fileLocations[i].ToString());
+                        if (!filesGroupedByContent.ContainsKey(hash))
+                        {
+                            filesGroupedByContent.Add(hash, new List<Tuple<string, int>> {Tuple.Create(fileLocations[i].ToString(), i)});
+                        }
+                        else
+                        {
+                            filesGroupedByContent[hash].Add(Tuple.Create(fileLocations[i].ToString(), i));
+                        }
+                    }
+                }
+                DataGridRow dataGridRow = e.Row;
+               // Dispatcher.BeginInvoke(DispatcherPriority.Render, new Action(() => AlterRow(e)));
+               AlterRow(e,3, filesGroupedByContent);
+            }
+        }
+
+        private Brush GetNextColor(int index)
+        {
+            SolidColorBrush[] AvailableColors = new[] {new SolidColorBrush(Colors.Green), new SolidColorBrush(Colors.Red), new SolidColorBrush(Colors.Yellow)};
+            return AvailableColors[index];
+        }
+
+
+        private void AlterRow(DataGridRowEventArgs e, int index, Dictionary<string, List<Tuple<string, int>>> filesGroupedByHash)
+        {
+            var cell = GetCell(FileMatchedGridView, e.Row, index);
+            if (cell == null) return;
+
+            var item = e.Row.Item;
+            if (item == null) return;
+
+            TextBlock cellContent = cell.Content as TextBlock;
+            //if (cellContent != null)
+            //{
+            //    cell.Background = GetNextColor()
+            //}
+            cell.Background = Brushes.Red;
+        }
+
+        public static DataGridRow GetRow(DataGrid grid, int index)
+        {
+            var row = grid.ItemContainerGenerator.ContainerFromIndex(index) as DataGridRow;
+
+            if (row == null)
+            {
+                // may be virtualized, bring into view and try again
+                grid.ScrollIntoView(grid.Items[index]);
+                row = (DataGridRow)grid.ItemContainerGenerator.ContainerFromIndex(index);
+            }
+            return row;
+        }
+
+        public static T GetVisualChild<T>(Visual parent) where T : Visual
+        {
+            T child = default(T);
+            int numVisuals = VisualTreeHelper.GetChildrenCount(parent);
+            for (int i = 0; i < numVisuals; i++)
+            {
+                var v = (Visual)VisualTreeHelper.GetChild(parent, i);
+                child = v as T ?? GetVisualChild<T>(v);
+                if (child != null)
+                {
+                    break;
+                }
+            }
+            return child;
+        }
+
+        public static DataGridCell GetCell(DataGrid host, DataGridRow row, int columnIndex)
+        {
+            if (row == null) return null;
+
+            var presenter = GetVisualChild<DataGridCellsPresenter>(row);
+            if (presenter == null) return null;
+
+            // try to get the cell but it may possibly be virtualized
+            var cell = (DataGridCell)presenter.ItemContainerGenerator.ContainerFromIndex(columnIndex);
+            if (cell == null)
+            {
+                // now try to bring into view and retreive the cell
+                host.ScrollIntoView(row, host.Columns[columnIndex]);
+                cell = (DataGridCell)presenter.ItemContainerGenerator.ContainerFromIndex(columnIndex);
+            }
+            return cell;
+
+        }
+
     }
 }

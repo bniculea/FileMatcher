@@ -2,9 +2,10 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/DirectoryUtilitiesTest/bin/Debug/TestFiles/FileHashingTest
-/DirectoryUtilities/bin
-/FileMatcher/bin
-/FileMatcherController/bin
-/RegexHelper/bin
-/RegexHelperTest/bin
+/FileMatcher/bin/Release
+/FileMatcher/obj/Release
+/FileMatcherController/bin/Release
+/FileMatcherController/obj/Release
+/RegexHelper
+/RegexHelperTest
+/TestResults

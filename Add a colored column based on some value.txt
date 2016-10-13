@@ -32,3 +32,9 @@ In Code:
         //}
 
 		**this suffers from the refresh problem -> it may color cells which were not supposed to be colored
+
+
+// Given dll path => Check alignment between RES, Manifest and DLL
+							Same version, public key, .NET version
+
+// Color equal files with same color in datagrid
