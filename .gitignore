@@ -3,3 +3,8 @@
 ################################################################################
 
 /DirectoryUtilitiesTest/bin/Debug/TestFiles/FileHashingTest
+/DirectoryUtilities/bin
+/FileMatcher/bin
+/FileMatcherController/bin
+/RegexHelper/bin
+/RegexHelperTest/bin
