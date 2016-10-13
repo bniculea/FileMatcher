@@ -1,0 +1,14 @@
+C:\GitRepositories\FileMatcher\DirectoryUtilitiesTest\bin\Release\TestFiles\FileHashingTest\File2.txt
+C:\GitRepositories\FileMatcher\DirectoryUtilitiesTest\bin\Release\TestFiles\FileHashingTest\File1.txt
+C:\GitRepositories\FileMatcher\DirectoryUtilitiesTest\bin\Release\TestFiles\FileHashingTest\Path1\File1.txt
+C:\GitRepositories\FileMatcher\DirectoryUtilitiesTest\bin\Release\TestFiles\FileHashingTest\Path2\File1.txt
+C:\GitRepositories\FileMatcher\DirectoryUtilitiesTest\bin\Release\TestFiles\Newtonsoft.Json.dll
+C:\GitRepositories\FileMatcher\DirectoryUtilitiesTest\bin\Release\TestFiles\SameContent.dll
+C:\GitRepositories\FileMatcher\DirectoryUtilitiesTest\bin\Release\TestFiles\SameContent2.dll
+C:\GitRepositories\FileMatcher\DirectoryUtilitiesTest\bin\Release\DirectoryUtilitiesTest.dll
+C:\GitRepositories\FileMatcher\DirectoryUtilitiesTest\bin\Release\DirectoryUtilitiesTest.pdb
+C:\GitRepositories\FileMatcher\DirectoryUtilitiesTest\bin\Release\DirectoryUtilities.dll
+C:\GitRepositories\FileMatcher\DirectoryUtilitiesTest\bin\Release\DirectoryUtilities.pdb
+C:\GitRepositories\FileMatcher\DirectoryUtilitiesTest\obj\Release\DirectoryUtilitiesTest.csprojResolveAssemblyReference.cache
+C:\GitRepositories\FileMatcher\DirectoryUtilitiesTest\obj\Release\DirectoryUtilitiesTest.dll
+C:\GitRepositories\FileMatcher\DirectoryUtilitiesTest\obj\Release\DirectoryUtilitiesTest.pdb

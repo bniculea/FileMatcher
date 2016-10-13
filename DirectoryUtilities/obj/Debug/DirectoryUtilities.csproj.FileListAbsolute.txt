@@ -7,3 +7,4 @@ C:\GitRepositories\FileMatcher\DirectoryUtilities\bin\Debug\DirectoryUtilities.d
 C:\GitRepositories\FileMatcher\DirectoryUtilities\bin\Debug\DirectoryUtilities.pdb
 C:\GitRepositories\FileMatcher\DirectoryUtilities\obj\Debug\DirectoryUtilities.dll
 C:\GitRepositories\FileMatcher\DirectoryUtilities\obj\Debug\DirectoryUtilities.pdb
+C:\GitRepositories\FileMatcher\DirectoryUtilities\obj\Debug\DirectoryUtilities.csprojResolveAssemblyReference.cache
